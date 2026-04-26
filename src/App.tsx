@@ -35,6 +35,7 @@ const links = {
 
 const brand = {
   logo: '/brand/logo.png',
+  tigerIcon: '/brand/tiger-icon.png',
   tigerMark: '/brand/tiger-mark.png',
   portraitWide: '/brand/portrait-wide.jpg',
   portraitSquare: '/brand/portrait-square.jpg',
@@ -323,7 +324,7 @@ function App() {
     <div className="site-shell">
       <header className="topbar">
         <a className="brand-mark" href="#home" aria-label="RED T7GER home">
-          <BrandImage src={brand.logo} alt="RED T7GER logo" className="brand-logo" fallbackLabel="RT" />
+          <BrandImage src={brand.tigerIcon} alt="RED T7GER tiger logo" className="brand-logo" fallbackLabel="RT" />
           <span className="brand-wordmark">
             <span>RED</span>
             <span>T7GER</span>

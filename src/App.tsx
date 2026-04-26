@@ -606,6 +606,9 @@ function App() {
         <div>
           <strong>RED T7GER</strong>
           <span>Dark rap-rock and EDM crossover.</span>
+          <span className="footer-fineprint">
+            © 2026 RED T7GER. All rights reserved. <a href="/privacy.html">Privacy & Terms</a>
+          </span>
         </div>
           <div className="footer-links">
             <a href={links.spotify} target="_blank" rel="noopener noreferrer"><SiSpotify size={16} aria-hidden="true" /> Spotify</a>

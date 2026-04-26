@@ -834,6 +834,24 @@ h3 {
   color: var(--text);
 }
 
+.footer-fineprint {
+  margin-top: 6px;
+  color: var(--muted-2) !important;
+  font-size: 12px;
+}
+
+.footer-fineprint a {
+  color: var(--muted-2);
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 255, 255, 0.18);
+  text-underline-offset: 2px;
+  transition: color 180ms ease;
+}
+
+.footer-fineprint a:hover {
+  color: var(--text);
+}
+
 .footer-links {
   display: flex;
   flex-wrap: wrap;

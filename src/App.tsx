@@ -230,7 +230,6 @@ function ContactForm() {
       )
     }
   }
-  }
 
   return (
     <form className="contact-form" onSubmit={onSubmit} noValidate>

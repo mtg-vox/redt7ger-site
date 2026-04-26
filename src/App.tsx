@@ -1,10 +1,8 @@
 import { useState, type ReactNode, type SyntheticEvent } from 'react'
 import {
   ArrowUpRight,
-  Download,
   ExternalLink,
   Flame,
-  Mail,
   Mic2,
   ShoppingBag,
   Zap,
@@ -137,6 +135,92 @@ function ExternalButton({
       {children}
       <ArrowUpRight size={18} aria-hidden="true" />
     </a>
+  )
+}
+
+function ContactForm() {
+  const endpoint = import.meta.env.VITE_FORMSPREE_ENDPOINT as string | undefined
+  const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle')
+  const [errorMsg, setErrorMsg] = useState<string | null>(null)
+
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    if (!endpoint) {
+      setStatus('error')
+      setErrorMsg('Form endpoint not configured. Set VITE_FORMSPREE_ENDPOINT.')
+      return
+    }
+    const form = e.currentTarget
+    const data = new FormData(form)
+    if ((data.get('_gotcha') as string)?.length) return // honeypot
+    setStatus('sending')
+    setErrorMsg(null)
+    try {
+      const res = await fetch(endpoint, {
+        method: 'POST',
+        body: data,
+        headers: { Accept: 'application/json' },
+      })
+      if (!res.ok) throw new Error(`HTTP ${res.status}`)
+      form.reset()
+      setStatus('sent')
+    } catch (err) {
+      setStatus('error')
+      setErrorMsg(err instanceof Error ? err.message : 'Unknown error')
+    }
+  }
+
+  return (
+    <form className="contact-form" onSubmit={onSubmit} noValidate>
+      <input
+        type="text"
+        name="_gotcha"
+        tabIndex={-1}
+        autoComplete="off"
+        style={{ position: 'absolute', left: '-9999px', width: 1, height: 1 }}
+        aria-hidden="true"
+      />
+      <label className="field">
+        <span>Name</span>
+        <input type="text" name="name" required autoComplete="name" placeholder="Your name" />
+      </label>
+      <label className="field">
+        <span>Email</span>
+        <input type="email" name="email" required autoComplete="email" placeholder="you@email.com" />
+      </label>
+      <label className="field">
+        <span>Subject</span>
+        <select name="subject" defaultValue="Booking">
+          <option>Booking</option>
+          <option>Press / Interview</option>
+          <option>Sync / Licensing</option>
+          <option>Collaboration</option>
+          <option>Merch wholesale</option>
+          <option>Other</option>
+        </select>
+      </label>
+      <label className="field">
+        <span>Message</span>
+        <textarea name="message" rows={5} required placeholder="Tell me what you have in mind." />
+      </label>
+      <button
+        type="submit"
+        className="button button-primary contact-submit"
+        disabled={status === 'sending' || status === 'sent'}
+      >
+        {status === 'sending' ? 'Sending…' : status === 'sent' ? 'Message sent ✓' : 'Send message'}
+      </button>
+      {status === 'sent' && (
+        <p className="form-msg form-msg-ok" role="status">
+          Got it. I'll reply from the RED T7GER inbox shortly.
+        </p>
+      )}
+      {status === 'error' && (
+        <p className="form-msg form-msg-err" role="alert">
+          Couldn't send {errorMsg ? `(${errorMsg})` : ''}. DM @red_t7ger on Instagram instead.
+        </p>
+      )}
+    </form>
   )
 }
 
@@ -424,23 +508,20 @@ function App() {
         </section>
 
         <section className="booking-section" id="contact">
-          <div>
+          <div className="booking-copy">
             <p className="eyebrow">Booking / Press / Sync</p>
             <h2>Bring the dark energy into the room.</h2>
             <p>
-              For shows, interviews, collaborations, and licensing conversations, use the official RED T7GER social channels while the direct booking inbox is being finalized.
+              Shows, interviews, collaborations, licensing, and merch wholesale — drop a message and it lands in the RED T7GER inbox directly.
             </p>
+            <div className="booking-actions">
+              <ExternalButton href={links.instagram} variant="secondary">
+                <SiInstagram size={18} aria-hidden="true" />
+                DM on Instagram
+              </ExternalButton>
+            </div>
           </div>
-          <div className="booking-actions">
-            <ExternalButton href={links.instagram}>
-              <Mail size={18} aria-hidden="true" />
-              Contact on Instagram
-            </ExternalButton>
-            <ExternalButton href={links.spotify} variant="secondary">
-              <Download size={18} aria-hidden="true" />
-              Open EPK Stream Links
-            </ExternalButton>
-          </div>
+          <ContactForm />
         </section>
       </main>
 

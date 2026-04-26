@@ -711,25 +711,98 @@ h3 {
 
 .booking-section {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: center;
-  gap: 34px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: start;
+  gap: 40px;
   max-width: 1200px;
   margin: 0 auto 34px;
   padding: 44px 34px;
   border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 12px;
+  background: linear-gradient(112deg, rgba(242, 27, 45, 0.16), transparent 44%), rgba(255, 255, 255, 0.05);
+}
+
+.booking-copy h2 {
+  max-width: 540px;
+  font-size: 38px;
+}
+
+.booking-copy p {
+  max-width: 540px;
+  margin-bottom: 22px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  position: relative;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field span {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 8px;
-  background: linear-gradient(112deg, rgba(242, 27, 45, 0.19), transparent 44%), rgba(255, 255, 255, 0.05);
+  background: rgba(0, 0, 0, 0.32);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 15px;
+  transition: border-color 180ms ease, background 180ms ease;
 }
 
-.booking-section h2 {
-  max-width: 660px;
-  font-size: 42px;
+.field textarea {
+  resize: vertical;
+  min-height: 120px;
 }
 
-.booking-section p {
-  max-width: 690px;
-  margin-bottom: 0;
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--red);
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.contact-submit {
+  align-self: flex-start;
+  margin-top: 6px;
+}
+
+.contact-submit:disabled {
+  opacity: 0.7;
+  cursor: default;
+  transform: none;
+}
+
+.form-msg {
+  margin: 4px 0 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.form-msg-ok {
+  color: #6fdf8b;
+}
+
+.form-msg-err {
+  color: #ff8b8b;
 }
 
 .footer {
@@ -799,6 +872,10 @@ h3 {
   .visual-section,
   .booking-section {
     grid-template-columns: 1fr;
+  }
+
+  .booking-copy h2 {
+    font-size: 32px;
   }
 
   .platform-grid {

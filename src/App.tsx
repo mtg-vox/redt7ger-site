@@ -25,12 +25,13 @@ import merchData from './merch.generated.json'
 const links = {
   spotify: 'https://open.spotify.com/artist/7hrPBz3dtDMzxZSujLTDSD',
   magicTrick: 'https://open.spotify.com/album/5I6BmI2oFpy1MnnuAWmXDt',
-  apple: 'https://music.apple.com/us/artist/red-t7ger/1813488775',
+  apple: 'https://music.apple.com/us/artist/red-t7ger/1894961385',
   youtube: 'https://www.youtube.com/@Red_T7ger',
+  youtubeMusic: 'https://music.youtube.com/channel/UCPdgcvVAYzv2yhTAdq4r88Q',
   instagram: 'https://www.instagram.com/red_t7ger/',
   tiktok: 'https://www.tiktok.com/@red_t7ger',
   x: 'https://x.com/red_t7ger',
-  soundcloud: 'https://soundcloud.com/redt7ger',
+  soundcloud: 'https://soundcloud.com/red_t7ger',
   etsy: 'https://www.etsy.com/shop/RedTigerUnlimited',
 }
 
@@ -281,7 +282,7 @@ function App() {
                   <SiApplemusic size={18} aria-hidden="true" />
                   Apple Music
                 </ExternalButton>
-                <ExternalButton href={links.youtube} variant="secondary">
+                <ExternalButton href={links.youtubeMusic} variant="secondary">
                   <SiYoutubemusic size={18} aria-hidden="true" />
                   YouTube Music
                 </ExternalButton>

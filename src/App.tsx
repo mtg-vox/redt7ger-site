@@ -386,16 +386,32 @@ function App() {
         </section>
 
         <div className="ticker-strip" aria-hidden="true">
-          <span>Rap Rock</span>
-          <span>Trap Metal</span>
-          <span>Dark Hip-Hop</span>
-          <span>EDM Crossover</span>
-          <span>RED T7GER</span>
-          <span>Rap Rock</span>
-          <span>Trap Metal</span>
-          <span>Dark Hip-Hop</span>
-          <span>EDM Crossover</span>
-          <span>RED T7GER</span>
+          <div className="ticker-track">
+            <div className="ticker-group">
+              <span>Rap Rock</span>
+              <span>Trap Metal</span>
+              <span>Dark Hip-Hop</span>
+              <span>EDM Crossover</span>
+              <span>RED T7GER</span>
+              <span>Rap Rock</span>
+              <span>Trap Metal</span>
+              <span>Dark Hip-Hop</span>
+              <span>EDM Crossover</span>
+              <span>RED T7GER</span>
+            </div>
+            <div className="ticker-group" aria-hidden="true">
+              <span>Rap Rock</span>
+              <span>Trap Metal</span>
+              <span>Dark Hip-Hop</span>
+              <span>EDM Crossover</span>
+              <span>RED T7GER</span>
+              <span>Rap Rock</span>
+              <span>Trap Metal</span>
+              <span>Dark Hip-Hop</span>
+              <span>EDM Crossover</span>
+              <span>RED T7GER</span>
+            </div>
+          </div>
         </div>
 
         <section className="section music-section" id="music">

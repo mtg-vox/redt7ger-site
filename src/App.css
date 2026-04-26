@@ -289,9 +289,7 @@ h3 {
 }
 
 .ticker-strip {
-  display: flex;
-  gap: 34px;
-  min-width: max-content;
+  overflow: hidden;
   padding: 16px 0;
   border-top: 1px solid rgba(255, 255, 255, 0.12);
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
@@ -299,12 +297,24 @@ h3 {
   font-size: 14px;
   font-weight: 900;
   text-transform: uppercase;
-  animation: ticker 28s linear infinite;
+}
+
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: ticker 32s linear infinite;
+}
+
+.ticker-group {
+  display: flex;
+  flex-shrink: 0;
+  gap: 34px;
+  padding-right: 34px;
 }
 
 @keyframes ticker {
   from { transform: translateX(0); }
-  to { transform: translateX(-360px); }
+  to { transform: translateX(-50%); }
 }
 
 .section {

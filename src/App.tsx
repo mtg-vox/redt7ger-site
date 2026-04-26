@@ -27,7 +27,7 @@ const links = {
   magicTrick: 'https://open.spotify.com/album/5I6BmI2oFpy1MnnuAWmXDt',
   apple: 'https://music.apple.com/us/artist/red-t7ger/1894961385',
   youtube: 'https://www.youtube.com/@Red_T7ger',
-  youtubeMusic: 'https://music.youtube.com/channel/UCPdgcvVAYzv2yhTAdq4r88Q',
+  youtubeMusic: 'https://music.youtube.com/channel/UC6fJRbXuBTF19kEia7L_L_A',
   instagram: 'https://www.instagram.com/red_t7ger/',
   tiktok: 'https://www.tiktok.com/@red_t7ger',
   x: 'https://x.com/red_t7ger',

@@ -1,20 +1,24 @@
 import { useState, type ReactNode, type SyntheticEvent } from 'react'
 import {
   ArrowUpRight,
-  Camera,
   Download,
   ExternalLink,
   Flame,
-  Headphones,
   Mail,
   Mic2,
-  Music2,
-  Play,
-  Radio,
   ShoppingBag,
-  Video,
   Zap,
 } from 'lucide-react'
+import {
+  SiSpotify,
+  SiApplemusic,
+  SiYoutube,
+  SiYoutubemusic,
+  SiInstagram,
+  SiTiktok,
+  SiSoundcloud,
+  SiX,
+} from 'react-icons/si'
 import './App.css'
 import merchData from './merch.generated.json'
 
@@ -40,12 +44,12 @@ const brand = {
 }
 
 const platformLinks = [
-  { label: 'Spotify', href: links.spotify, icon: Headphones },
-  { label: 'Apple Music', href: links.apple, icon: Music2 },
-  { label: 'YouTube', href: links.youtube, icon: Video },
-  { label: 'Instagram', href: links.instagram, icon: Camera },
-  { label: 'TikTok', href: links.tiktok, icon: Play },
-  { label: 'SoundCloud', href: links.soundcloud, icon: Radio },
+  { label: 'Spotify',     href: links.spotify,    icon: SiSpotify,     brand: '#1DB954' },
+  { label: 'Apple Music', href: links.apple,      icon: SiApplemusic,  brand: '#FA243C' },
+  { label: 'YouTube',     href: links.youtube,    icon: SiYoutube,     brand: '#FF0000' },
+  { label: 'Instagram',   href: links.instagram,  icon: SiInstagram,   brand: '#E1306C' },
+  { label: 'TikTok',      href: links.tiktok,     icon: SiTiktok,      brand: '#ffffff' },
+  { label: 'SoundCloud',  href: links.soundcloud, icon: SiSoundcloud,  brand: '#FF5500' },
 ]
 
 const soundPillars = [
@@ -187,7 +191,7 @@ function App() {
           <a href="#contact">Booking</a>
         </nav>
         <a className="listen-link" href={links.spotify} target="_blank" rel="noreferrer">
-          <Headphones size={18} aria-hidden="true" />
+          <SiSpotify size={18} aria-hidden="true" style={{ color: '#1DB954' }} />
           <span>Listen</span>
         </a>
       </header>
@@ -208,12 +212,12 @@ function App() {
             </p>
             <div className="hero-actions" aria-label="Primary actions">
               <ExternalButton href={links.spotify}>
-                <Play size={18} aria-hidden="true" />
+                <SiSpotify size={18} aria-hidden="true" />
                 Listen on Spotify
               </ExternalButton>
               <ExternalButton href={links.instagram} variant="secondary">
-                <Camera size={18} aria-hidden="true" />
-                Follow @red_t7ger
+                <SiInstagram size={18} aria-hidden="true" />
+                Follow on Instagram
               </ExternalButton>
             </div>
           </div>
@@ -270,12 +274,16 @@ function App() {
               <p>{upcomingRelease.copy}</p>
               <div className="release-feature-actions">
                 <ExternalButton href={upcomingRelease.href}>
-                  <Play size={18} aria-hidden="true" />
+                  <SiSpotify size={18} aria-hidden="true" />
                   Save on Spotify
                 </ExternalButton>
                 <ExternalButton href={links.apple} variant="secondary">
-                  <Music2 size={18} aria-hidden="true" />
+                  <SiApplemusic size={18} aria-hidden="true" />
                   Apple Music
+                </ExternalButton>
+                <ExternalButton href={links.youtube} variant="secondary">
+                  <SiYoutubemusic size={18} aria-hidden="true" />
+                  YouTube Music
                 </ExternalButton>
               </div>
             </div>
@@ -303,9 +311,15 @@ function App() {
           </div>
 
           <div className="platform-grid" aria-label="Streaming and social links">
-            {platformLinks.map(({ label, href, icon: Icon }) => (
-              <a href={href} target="_blank" rel="noreferrer" key={label}>
-                <Icon size={20} aria-hidden="true" />
+            {platformLinks.map(({ label, href, icon: Icon, brand: brandColor }) => (
+              <a
+                href={href}
+                target="_blank"
+                rel="noreferrer"
+                key={label}
+                style={{ ['--brand-color' as string]: brandColor }}
+              >
+                <Icon size={22} aria-hidden="true" style={{ color: brandColor }} />
                 <span>{label}</span>
               </a>
             ))}
@@ -434,14 +448,15 @@ function App() {
           <strong>RED T7GER</strong>
           <span>Dark rap-rock and EDM crossover.</span>
         </div>
-        <div className="footer-links">
-          <a href={links.spotify} target="_blank" rel="noreferrer">Spotify</a>
-          <a href={links.youtube} target="_blank" rel="noreferrer">YouTube</a>
-          <a href={links.instagram} target="_blank" rel="noreferrer">Instagram</a>
-          <a href={links.tiktok} target="_blank" rel="noreferrer">TikTok</a>
-          <a href={links.x} target="_blank" rel="noreferrer">X</a>
-          <a href={links.etsy} target="_blank" rel="noreferrer">Etsy</a>
-        </div>
+          <div className="footer-links">
+            <a href={links.spotify} target="_blank" rel="noreferrer"><SiSpotify size={16} aria-hidden="true" /> Spotify</a>
+            <a href={links.apple} target="_blank" rel="noreferrer"><SiApplemusic size={16} aria-hidden="true" /> Apple Music</a>
+            <a href={links.youtube} target="_blank" rel="noreferrer"><SiYoutube size={16} aria-hidden="true" /> YouTube</a>
+            <a href={links.instagram} target="_blank" rel="noreferrer"><SiInstagram size={16} aria-hidden="true" /> Instagram</a>
+            <a href={links.tiktok} target="_blank" rel="noreferrer"><SiTiktok size={16} aria-hidden="true" /> TikTok</a>
+            <a href={links.x} target="_blank" rel="noreferrer"><SiX size={16} aria-hidden="true" /> X</a>
+            <a href={links.etsy} target="_blank" rel="noreferrer"><ShoppingBag size={16} aria-hidden="true" /> Etsy</a>
+          </div>
       </footer>
     </div>
   )

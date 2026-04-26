@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://redt7ger.com/sitemap.xml

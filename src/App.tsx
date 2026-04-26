@@ -143,6 +143,43 @@ function ContactForm() {
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle')
   const [errorMsg, setErrorMsg] = useState<string | null>(null)
 
+  function validate(data: FormData): string | null {
+    const name = (data.get('name') as string)?.trim() ?? ''
+    const email = (data.get('email') as string)?.trim() ?? ''
+    const message = (data.get('message') as string)?.trim() ?? ''
+    if (!name) return 'Please add your name.'
+    if (!email) return 'Please add an email address so I can reply.'
+    // Pragmatic email check: requires "x@y.z" pattern, no spaces.
+    const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/
+    if (!emailRe.test(email)) {
+      if (!email.includes('@')) return "That email is missing the @ symbol."
+      if (!email.includes('.')) return "That email is missing the domain (looks like .com is missing)."
+      return "That email doesn't look right. Double-check the spelling."
+    }
+    if (message.length < 10) return 'Add a few more details so I know what you have in mind.'
+    if (message.length > 5000) return 'Message is too long. Trim it under ~5000 characters.'
+    return null
+  }
+
+  function friendlyError(status: number, body: unknown): string {
+    // Formspree returns { errors: [{ field, message, code }, ...] } on 4xx.
+    const errs =
+      body && typeof body === 'object' && 'errors' in body && Array.isArray((body as { errors: unknown }).errors)
+        ? ((body as { errors: { field?: string; message?: string; code?: string }[] }).errors)
+        : []
+    if (errs.length) {
+      const first = errs[0]
+      const field = first.field ? first.field.charAt(0).toUpperCase() + first.field.slice(1) + ': ' : ''
+      return `${field}${first.message ?? 'invalid value'}`
+    }
+    if (status === 422) return 'Some fields look invalid. Check your email and message and try again.'
+    if (status === 429) return 'Too many submissions in a row. Wait a minute and try again.'
+    if (status === 403) return 'Submission was blocked (the form may need to be activated by the site owner).'
+    if (status === 404) return 'Form endpoint not found. The site owner needs to update it.'
+    if (status >= 500) return 'The form service is having a moment. Try again in a few minutes.'
+    return `Something went wrong (HTTP ${status}).`
+  }
+
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
     if (!endpoint) {
@@ -153,6 +190,14 @@ function ContactForm() {
     const form = e.currentTarget
     const data = new FormData(form)
     if ((data.get('_gotcha') as string)?.length) return // honeypot
+
+    const validationError = validate(data)
+    if (validationError) {
+      setStatus('error')
+      setErrorMsg(validationError)
+      return
+    }
+
     setStatus('sending')
     setErrorMsg(null)
     try {
@@ -161,13 +206,30 @@ function ContactForm() {
         body: data,
         headers: { Accept: 'application/json' },
       })
-      if (!res.ok) throw new Error(`HTTP ${res.status}`)
-      form.reset()
-      setStatus('sent')
+      if (res.ok) {
+        form.reset()
+        setStatus('sent')
+        return
+      }
+      let body: unknown = null
+      try {
+        body = await res.json()
+      } catch {
+        // body wasn't JSON — fall through to status-based message
+      }
+      setStatus('error')
+      setErrorMsg(friendlyError(res.status, body))
     } catch (err) {
       setStatus('error')
-      setErrorMsg(err instanceof Error ? err.message : 'Unknown error')
+      setErrorMsg(
+        err instanceof TypeError
+          ? "Couldn't reach the form service. Check your connection and try again."
+          : err instanceof Error
+            ? err.message
+            : 'Unknown error',
+      )
     }
+  }
   }
 
   return (
@@ -217,7 +279,7 @@ function ContactForm() {
       )}
       {status === 'error' && (
         <p className="form-msg form-msg-err" role="alert">
-          Couldn't send {errorMsg ? `(${errorMsg})` : ''}. DM @red_t7ger on Instagram instead.
+          {errorMsg ?? 'Something went wrong. Try again or DM @red_t7ger on Instagram.'}
         </p>
       )}
     </form>

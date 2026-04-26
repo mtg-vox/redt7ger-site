@@ -131,7 +131,7 @@ function ExternalButton({
   variant?: 'primary' | 'secondary'
 }) {
   return (
-    <a className={`button button-${variant}`} href={href} target="_blank" rel="noreferrer">
+    <a className={`button button-${variant}`} href={href} target="_blank" rel="noopener noreferrer">
       {children}
       <ArrowUpRight size={18} aria-hidden="true" />
     </a>
@@ -336,7 +336,7 @@ function App() {
           <a href="#press">Press</a>
           <a href="#contact">Booking</a>
         </nav>
-        <a className="listen-link" href={links.spotify} target="_blank" rel="noreferrer">
+        <a className="listen-link" href={links.spotify} target="_blank" rel="noopener noreferrer">
           <SiSpotify size={18} aria-hidden="true" style={{ color: '#1DB954' }} />
           <span>Listen</span>
         </a>
@@ -378,7 +378,7 @@ function App() {
             <div>
               <span>{upcomingRelease.type} · {upcomingRelease.year}</span>
               <strong>{upcomingRelease.title}</strong>
-              <a href={upcomingRelease.href} target="_blank" rel="noreferrer">
+              <a href={upcomingRelease.href} target="_blank" rel="noopener noreferrer">
                 Pre-save / follow <ExternalLink size={15} aria-hidden="true" />
               </a>
             </div>
@@ -464,7 +464,7 @@ function App() {
                   <span>{release.type} · {release.year}</span>
                   <h3>{release.title}</h3>
                   <p>{release.copy}</p>
-                  <a href={release.href} target="_blank" rel="noreferrer">
+                  <a href={release.href} target="_blank" rel="noopener noreferrer">
                     Listen <ArrowUpRight size={17} aria-hidden="true" />
                   </a>
                 </div>
@@ -477,7 +477,7 @@ function App() {
               <a
                 href={href}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 key={label}
                 style={{ ['--brand-color' as string]: brandColor }}
               >
@@ -538,7 +538,7 @@ function App() {
           </div>
           <div className="merch-grid">
             {merch.map((item) => (
-              <a className="merch-card" href={item.href} target="_blank" rel="noreferrer" key={item.id}>
+              <a className="merch-card" href={item.href} target="_blank" rel="noopener noreferrer" key={item.id}>
                 <div className="merch-art">
                   <BrandImage
                     src={item.image}
@@ -575,7 +575,7 @@ function App() {
           </div>
           <div className="press-list">
             {pressLinks.map((item) => (
-              <a href={item.href} target="_blank" rel="noreferrer" className="press-item" key={item.title}>
+              <a href={item.href} target="_blank" rel="noopener noreferrer" className="press-item" key={item.title}>
                 <span>{item.source}</span>
                 <strong>{item.title}</strong>
                 <ExternalLink size={18} aria-hidden="true" />
@@ -608,13 +608,13 @@ function App() {
           <span>Dark rap-rock and EDM crossover.</span>
         </div>
           <div className="footer-links">
-            <a href={links.spotify} target="_blank" rel="noreferrer"><SiSpotify size={16} aria-hidden="true" /> Spotify</a>
-            <a href={links.apple} target="_blank" rel="noreferrer"><SiApplemusic size={16} aria-hidden="true" /> Apple Music</a>
-            <a href={links.youtube} target="_blank" rel="noreferrer"><SiYoutube size={16} aria-hidden="true" /> YouTube</a>
-            <a href={links.instagram} target="_blank" rel="noreferrer"><SiInstagram size={16} aria-hidden="true" /> Instagram</a>
-            <a href={links.tiktok} target="_blank" rel="noreferrer"><SiTiktok size={16} aria-hidden="true" /> TikTok</a>
-            <a href={links.x} target="_blank" rel="noreferrer"><SiX size={16} aria-hidden="true" /> X</a>
-            <a href={links.etsy} target="_blank" rel="noreferrer"><ShoppingBag size={16} aria-hidden="true" /> Etsy</a>
+            <a href={links.spotify} target="_blank" rel="noopener noreferrer"><SiSpotify size={16} aria-hidden="true" /> Spotify</a>
+            <a href={links.apple} target="_blank" rel="noopener noreferrer"><SiApplemusic size={16} aria-hidden="true" /> Apple Music</a>
+            <a href={links.youtube} target="_blank" rel="noopener noreferrer"><SiYoutube size={16} aria-hidden="true" /> YouTube</a>
+            <a href={links.instagram} target="_blank" rel="noopener noreferrer"><SiInstagram size={16} aria-hidden="true" /> Instagram</a>
+            <a href={links.tiktok} target="_blank" rel="noopener noreferrer"><SiTiktok size={16} aria-hidden="true" /> TikTok</a>
+            <a href={links.x} target="_blank" rel="noopener noreferrer"><SiX size={16} aria-hidden="true" /> X</a>
+            <a href={links.etsy} target="_blank" rel="noopener noreferrer"><ShoppingBag size={16} aria-hidden="true" /> Etsy</a>
           </div>
       </footer>
     </div>

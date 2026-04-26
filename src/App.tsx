@@ -16,6 +16,7 @@ import {
   Zap,
 } from 'lucide-react'
 import './App.css'
+import merchData from './merch.generated.json'
 
 const links = {
   spotify: 'https://open.spotify.com/artist/7hrPBz3dtDMzxZSujLTDSD',
@@ -85,32 +86,19 @@ const catalog = [
   },
 ]
 
-const merch = [
-  {
-    title: 'RED T7GER Tiger Logo Tee',
-    tag: 'Apparel',
-    image: '/merch/tiger-logo-tee.jpg',
-    href: links.etsy,
-  },
-  {
-    title: 'Tiger Mark Hoodie',
-    tag: 'Apparel',
-    image: '/merch/tiger-mark-hoodie.jpg',
-    href: links.etsy,
-  },
-  {
-    title: 'Magic Trick Poster',
-    tag: 'Print',
-    image: '/merch/magic-trick-poster.jpg',
-    href: links.etsy,
-  },
-  {
-    title: 'Dirty F7ck Poster',
-    tag: 'Print',
-    image: '/merch/dirty-f7ck-poster.jpg',
-    href: links.etsy,
-  },
-]
+type MerchItem = {
+  id: string
+  title: string
+  href: string
+  image: string
+  localImage?: string
+  price?: string | null
+}
+
+const merch: MerchItem[] = (merchData.items as MerchItem[]).map((m) => ({
+  ...m,
+  image: m.localImage ?? m.image,
+}))
 
 const pressLinks = [
   {
@@ -374,17 +362,17 @@ function App() {
           </div>
           <div className="merch-grid">
             {merch.map((item) => (
-              <a className="merch-card" href={item.href} target="_blank" rel="noreferrer" key={item.title}>
+              <a className="merch-card" href={item.href} target="_blank" rel="noreferrer" key={item.id}>
                 <div className="merch-art">
                   <BrandImage
                     src={item.image}
                     alt={item.title}
                     className="merch-img"
-                    fallbackLabel={item.tag.toUpperCase()}
+                    fallbackLabel={item.title}
                   />
                 </div>
                 <div className="merch-meta">
-                  <span>{item.tag}</span>
+                  {item.price && <span>{item.price}</span>}
                   <strong>{item.title}</strong>
                   <em>
                     Shop on Etsy <ArrowUpRight size={15} aria-hidden="true" />

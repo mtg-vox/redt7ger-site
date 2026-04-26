@@ -5,9 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "npm run merch:sync && tsc -b && vite build",
+    "build:nofetch": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "merch:sync": "node scripts/sync-etsy-merch.mjs"
   },
   "dependencies": {
     "lucide-react": "^1.11.0",

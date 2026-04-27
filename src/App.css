@@ -933,40 +933,74 @@ h3 {
 
 @media (max-width: 760px) {
   .topbar {
-    padding: 12px 18px;
+    padding: 10px 16px;
+  }
+
+  .brand-logo {
+    width: 48px;
+    height: 30px;
+  }
+
+  .brand-wordmark {
+    font-size: 16px;
   }
 
   .listen-link {
-    min-height: 38px;
-    padding: 9px 12px;
+    min-height: 36px;
+    padding: 8px 12px;
+    font-size: 14px;
   }
 
   .hero-section {
-    padding: 112px 18px 44px;
+    padding: 96px 18px 40px;
+    gap: 28px;
   }
 
   h1 {
+    margin-bottom: 16px;
     font-size: 48px;
     line-height: 0.94;
     letter-spacing: -1px;
   }
 
   h2,
-  .booking-section h2 {
-    font-size: 32px;
+  .booking-section h2,
+  .booking-copy h2 {
+    font-size: 30px;
+    line-height: 1.05;
+  }
+
+  h3 {
+    font-size: 22px;
   }
 
   .release-feature-copy h3 {
-    font-size: 30px;
+    font-size: 28px;
+  }
+
+  .eyebrow {
+    font-size: 12px;
+    margin-bottom: 10px;
   }
 
   .hero-copy {
-    font-size: 18px;
+    font-size: 17px;
+    line-height: 1.5;
+    margin-bottom: 22px;
+  }
+
+  .section-heading p:not(.eyebrow),
+  .visual-copy p:not(.eyebrow),
+  .booking-section p,
+  .release-feature-copy p {
+    font-size: 16px;
+    line-height: 1.55;
   }
 
   .hero-actions,
   .booking-actions {
     flex-direction: column;
+    width: 100%;
   }
 
   .button {
@@ -979,6 +1013,17 @@ h3 {
     grid-template-columns: 1fr;
   }
 
+  .hero-release {
+    max-width: 100%;
+    padding: 16px;
+    gap: 14px;
+  }
+
+  .hero-release-art {
+    max-width: 220px;
+    margin: 0 auto;
+  }
+
   .release-card-art,
   .hero-release-art {
     width: 100%;
@@ -986,39 +1031,108 @@ h3 {
     aspect-ratio: 1;
   }
 
+  .release-card {
+    min-height: 0;
+  }
+
+  .release-card-art {
+    min-height: 0;
+  }
+
+  .release-copy {
+    padding: 22px 18px;
+  }
+
+  .release-feature {
+    padding: 14px;
+    gap: 18px;
+    margin-bottom: 24px;
+  }
+
+  .release-feature-copy {
+    padding: 4px 4px 8px;
+  }
+
   .section {
-    padding: 72px 18px;
+    padding: 56px 18px;
+  }
+
+  .signal-section {
+    padding-top: 28px;
+  }
+
+  .merch-section {
+    padding-bottom: 56px;
+  }
+
+  .section-heading {
+    margin-bottom: 28px;
   }
 
   .platform-grid,
   .pillar-grid {
     grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 20px;
+  }
+
+  .pillar-card {
+    min-height: 0;
+    padding: 24px 22px;
+  }
+
+  .pillar-card h3 {
+    margin: 18px 0 10px;
+  }
+
+  .visual-section {
+    padding: 48px 18px 64px;
+    gap: 28px;
   }
 
   .visual-stack {
     grid-template-columns: 1fr;
+    min-height: 0;
   }
 
   .merch-grid {
     grid-template-columns: 1fr;
+    gap: 14px;
   }
 
-  .visual-section,
-  .booking-section,
-  .footer {
-    padding-left: 18px;
-    padding-right: 18px;
+  .merch-card {
+    max-width: 360px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .booking-section {
+    padding: 32px 20px;
+    margin-bottom: 24px;
+    gap: 28px;
+  }
+
+  .booking-copy h2,
+  .booking-copy p {
+    max-width: none;
+  }
+
+  .contact-submit {
+    align-self: stretch;
   }
 
   .footer {
-    align-items: flex-start;
     flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 28px 18px;
   }
 }
 
 @media (max-width: 380px) {
   .topbar {
-    gap: 12px;
+    gap: 10px;
+    padding: 10px 14px;
   }
 
   .listen-link span {
@@ -1030,7 +1144,92 @@ h3 {
     white-space: nowrap;
   }
 
+  .brand-logo {
+    width: 40px;
+    height: 26px;
+  }
+
   .brand-wordmark {
-    font-size: 15px;
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: 40px;
+  }
+
+  h2,
+  .booking-section h2,
+  .booking-copy h2 {
+    font-size: 26px;
+  }
+
+  .release-feature-copy h3 {
+    font-size: 24px;
+  }
+
+  .hero-section {
+    padding-top: 88px;
+  }
+
+  .section {
+    padding: 48px 16px;
+  }
+}
+
+/* Mobile: center body text and inline elements for a centered scroll experience.
+   Topbar (logo / Listen) and ticker keep their original layout. */
+@media (max-width: 760px) {
+  .hero-content,
+  .hero-release div,
+  .section-heading,
+  .release-feature-copy,
+  .release-copy,
+  .pillar-card,
+  .press-item,
+  .visual-copy,
+  .booking-copy,
+  .booking-section,
+  .footer {
+    text-align: center;
+  }
+
+  .hero-copy,
+  .booking-copy h2,
+  .booking-copy p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-actions,
+  .booking-actions,
+  .release-feature-actions {
+    justify-content: center;
+  }
+
+  .eyebrow,
+  .badge,
+  .hero-release a,
+  .release-copy a {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .release-feature-copy,
+  .release-copy {
+    align-items: center;
+  }
+
+  .press-item {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  .footer {
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-links {
+    justify-content: center;
   }
 }

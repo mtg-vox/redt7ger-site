@@ -63,13 +63,13 @@ const soundPillars = [
   },
   {
     icon: Flame,
-    title: 'Rock Impact',
-    body: 'Distorted edges, heavy movement, and a dark stage presence aimed at rap-rock and trap-metal listeners.',
+    title: 'Rap-Metal Weight',
+    body: 'Distorted guitars, nu-metal-influenced grooves, and a dark stage presence built for fans of Limp Bizkit, Tech N9ne, and ICP.',
   },
   {
     icon: Zap,
-    title: 'EDM Pressure',
-    body: 'Club-weight low end and Miami-night energy pushed through an underground artist lens.',
+    title: 'Underground Pressure',
+    body: 'Heavy low end, aggressive energy, and a no-fluff underground artist lens — built for the mosh, not the playlist.',
   },
 ]
 
@@ -358,7 +358,7 @@ function App() {
             <p className="eyebrow">Formerly B. Totty</p>
             <h1>RED T7GER</h1>
             <p className="hero-copy">
-              Dark, technical, high-energy rap built where lyrical hip-hop collides with rock aggression and club pressure.
+              Dark, technical, high-energy rap built where lyrical hip-hop collides with rap-metal aggression and nu-metal weight.
             </p>
             <div className="hero-actions" aria-label="Primary actions">
               <ExternalButton href={links.spotify}>
@@ -393,26 +393,26 @@ function App() {
           <div className="ticker-track">
             <div className="ticker-group">
               <span>Rap Rock</span>
-              <span>Trap Metal</span>
+              <span>Rap Metal</span>
+              <span>Nu-Metal Influence</span>
               <span>Dark Hip-Hop</span>
-              <span>EDM Crossover</span>
               <span>RED T7GER</span>
               <span>Rap Rock</span>
-              <span>Trap Metal</span>
+              <span>Rap Metal</span>
+              <span>Nu-Metal Influence</span>
               <span>Dark Hip-Hop</span>
-              <span>EDM Crossover</span>
               <span>RED T7GER</span>
             </div>
             <div className="ticker-group" aria-hidden="true">
               <span>Rap Rock</span>
-              <span>Trap Metal</span>
+              <span>Rap Metal</span>
+              <span>Nu-Metal Influence</span>
               <span>Dark Hip-Hop</span>
-              <span>EDM Crossover</span>
               <span>RED T7GER</span>
               <span>Rap Rock</span>
-              <span>Trap Metal</span>
+              <span>Rap Metal</span>
+              <span>Nu-Metal Influence</span>
               <span>Dark Hip-Hop</span>
-              <span>EDM Crossover</span>
               <span>RED T7GER</span>
             </div>
           </div>
@@ -423,7 +423,7 @@ function App() {
             <p className="eyebrow">Music</p>
             <h2>The hard edge is the point.</h2>
             <p>
-              RED T7GER sits in the pressure zone between technical rap, rap-rock, trap-metal, and dark electronic energy.
+              RED T7GER sits in the pressure zone between technical rap, rap-rock, and nu-metal-influenced rap-metal aggression.
             </p>
           </div>
 
@@ -609,7 +609,7 @@ function App() {
       <footer className="footer">
         <div>
           <strong>RED T7GER</strong>
-          <span>Dark rap-rock and EDM crossover.</span>
+          <span>Dark rap-rock with nu-metal influence.</span>
           <span className="footer-fineprint">
             © 2026 RED T7GER. All rights reserved. <a href="/privacy.html">Privacy & Terms</a>
           </span>

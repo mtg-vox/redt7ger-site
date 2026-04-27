@@ -16,6 +16,7 @@ import {
   SiTiktok,
   SiSoundcloud,
   SiX,
+  SiReverbnation,
 } from 'react-icons/si'
 import './App.css'
 import merchData from './merch.generated.json'
@@ -30,6 +31,7 @@ const links = {
   tiktok: 'https://www.tiktok.com/@red_t7ger',
   x: 'https://x.com/red_t7ger',
   soundcloud: 'https://soundcloud.com/red_t7ger',
+  reverbnation: 'https://www.reverbnation.com/RED_T7GER',
   etsy: 'https://www.etsy.com/shop/RedTigerUnlimited',
 }
 
@@ -50,6 +52,7 @@ const platformLinks = [
   { label: 'Instagram',   href: links.instagram,  icon: SiInstagram,   brand: '#E1306C' },
   { label: 'TikTok',      href: links.tiktok,     icon: SiTiktok,      brand: '#ffffff' },
   { label: 'SoundCloud',  href: links.soundcloud, icon: SiSoundcloud,  brand: '#FF5500' },
+  { label: 'ReverbNation', href: links.reverbnation, icon: SiReverbnation, brand: '#E43526' },
 ]
 
 const soundPillars = [

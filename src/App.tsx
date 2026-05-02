@@ -355,8 +355,6 @@ function App() {
             alt="RED T7GER tiger logo"
             className="brand-logo"
             fallbackLabel="RT"
-            width={56}
-            height={36}
             loading="eager"
           />
           <span className="brand-wordmark">
@@ -386,8 +384,6 @@ function App() {
               className="hero-portrait"
               loading="eager"
               fetchPriority="high"
-              width={1920}
-              height={1080}
             />
             <div className="hero-overlay" />
             <div className="stage-lines" />
@@ -417,8 +413,6 @@ function App() {
               alt="Dirty F7ck single cover art by RED T7GER"
               className="hero-release-art"
               fallbackLabel="DIRTY F7CK"
-              width={600}
-              height={600}
             />
             <div>
               <span>{featuredRelease.type} · {featuredRelease.year}</span>
@@ -474,8 +468,6 @@ function App() {
               alt={`${featuredRelease.title} single cover art by RED T7GER`}
               className="release-feature-art"
               fallbackLabel={featuredRelease.title.toUpperCase()}
-              width={800}
-              height={800}
             />
             <div className="release-feature-copy">
               <span className="badge">{featuredRelease.type} · {featuredRelease.year}</span>
@@ -506,8 +498,6 @@ function App() {
                   alt={`${release.title} single cover art by RED T7GER`}
                   className="release-card-art"
                   fallbackLabel={release.title.toUpperCase()}
-                  width={600}
-                  height={600}
                 />
                 <div className="release-copy">
                   <span>{release.type} · {release.year}</span>
@@ -567,16 +557,12 @@ function App() {
               alt="RED T7GER artist portrait, dark cinematic lighting"
               className="visual-portrait"
               fallbackLabel="RED T7GER"
-              width={800}
-              height={800}
             />
             <BrandImage
               src={brand.tigerMark}
               alt="RED T7GER tiger mark logo"
               className="visual-tiger"
               fallbackLabel="TIGER MARK"
-              width={600}
-              height={600}
             />
           </div>
         </section>
@@ -598,8 +584,6 @@ function App() {
                     alt={`${item.title} — official RED T7GER merch`}
                     className="merch-img"
                     fallbackLabel={item.title}
-                    width={600}
-                    height={600}
                   />
                 </div>
                 <div className="merch-meta">
@@ -637,8 +621,6 @@ function App() {
                     alt={item.imageAlt}
                     loading="lazy"
                     decoding="async"
-                    width={132}
-                    height={84}
                   />
                 </div>
                 <div className="press-text">

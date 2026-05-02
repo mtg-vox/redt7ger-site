@@ -305,11 +305,19 @@ function BrandImage({
   alt,
   className,
   fallbackLabel,
+  width,
+  height,
+  loading = 'lazy',
+  fetchPriority,
 }: {
   src: string
   alt: string
   className?: string
   fallbackLabel?: string
+  width?: number
+  height?: number
+  loading?: 'lazy' | 'eager'
+  fetchPriority?: 'high' | 'low' | 'auto'
 }) {
   const [failed, setFailed] = useState(false)
   if (failed) {
@@ -324,7 +332,11 @@ function BrandImage({
       src={src}
       alt={alt}
       className={className}
-      loading="lazy"
+      loading={loading}
+      decoding="async"
+      width={width}
+      height={height}
+      {...(fetchPriority ? { fetchpriority: fetchPriority } : {})}
       onError={(e: SyntheticEvent<HTMLImageElement>) => {
         e.currentTarget.style.display = 'none'
         setFailed(true)
@@ -338,7 +350,15 @@ function App() {
     <div className="site-shell">
       <header className="topbar">
         <a className="brand-mark" href="#home" aria-label="RED T7GER home">
-          <BrandImage src={brand.tigerIcon} alt="RED T7GER tiger logo" className="brand-logo" fallbackLabel="RT" />
+          <BrandImage
+            src={brand.tigerIcon}
+            alt="RED T7GER tiger logo"
+            className="brand-logo"
+            fallbackLabel="RT"
+            width={56}
+            height={36}
+            loading="eager"
+          />
           <span className="brand-wordmark">
             <span>RED</span>
             <span>T7GER</span>
@@ -360,7 +380,15 @@ function App() {
       <main>
         <section className="hero-section" id="home">
           <div className="hero-backdrop" aria-hidden="true">
-            <BrandImage src={brand.portraitWide} alt="" className="hero-portrait" />
+            <BrandImage
+              src={brand.portraitWide}
+              alt=""
+              className="hero-portrait"
+              loading="eager"
+              fetchPriority="high"
+              width={1920}
+              height={1080}
+            />
             <div className="hero-overlay" />
             <div className="stage-lines" />
           </div>
@@ -386,15 +414,17 @@ function App() {
           <div className="hero-release" aria-label="Latest release">
             <BrandImage
               src={brand.dirtyF7ck}
-              alt="Dirty F7ck cover art"
+              alt="Dirty F7ck single cover art by RED T7GER"
               className="hero-release-art"
               fallbackLabel="DIRTY F7CK"
+              width={600}
+              height={600}
             />
             <div>
               <span>{featuredRelease.type} · {featuredRelease.year}</span>
               <strong>{featuredRelease.title}</strong>
               <a href={featuredRelease.href} target="_blank" rel="noopener noreferrer">
-                Listen now <ExternalLink size={15} aria-hidden="true" />
+                Listen to {featuredRelease.title} <ExternalLink size={15} aria-hidden="true" />
               </a>
             </div>
           </div>
@@ -441,9 +471,11 @@ function App() {
           <article className="release-feature">
             <BrandImage
               src={featuredRelease.cover}
-              alt={`${featuredRelease.title} cover art`}
+              alt={`${featuredRelease.title} single cover art by RED T7GER`}
               className="release-feature-art"
               fallbackLabel={featuredRelease.title.toUpperCase()}
+              width={800}
+              height={800}
             />
             <div className="release-feature-copy">
               <span className="badge">{featuredRelease.type} · {featuredRelease.year}</span>
@@ -471,16 +503,18 @@ function App() {
               <article className="release-card" key={release.title}>
                 <BrandImage
                   src={release.cover}
-                  alt={`${release.title} cover art`}
+                  alt={`${release.title} single cover art by RED T7GER`}
                   className="release-card-art"
                   fallbackLabel={release.title.toUpperCase()}
+                  width={600}
+                  height={600}
                 />
                 <div className="release-copy">
                   <span>{release.type} · {release.year}</span>
                   <h3>{release.title}</h3>
                   <p>{release.copy}</p>
                   <a href={release.href} target="_blank" rel="noopener noreferrer">
-                    Listen <ArrowUpRight size={17} aria-hidden="true" />
+                    Listen to {release.title} <ArrowUpRight size={17} aria-hidden="true" />
                   </a>
                 </div>
               </article>
@@ -530,15 +564,19 @@ function App() {
           <div className="visual-stack">
             <BrandImage
               src={brand.portraitSquare}
-              alt="RED T7GER portrait"
+              alt="RED T7GER artist portrait, dark cinematic lighting"
               className="visual-portrait"
               fallbackLabel="RED T7GER"
+              width={800}
+              height={800}
             />
             <BrandImage
               src={brand.tigerMark}
-              alt="RED T7GER tiger mark"
+              alt="RED T7GER tiger mark logo"
               className="visual-tiger"
               fallbackLabel="TIGER MARK"
+              width={600}
+              height={600}
             />
           </div>
         </section>
@@ -557,9 +595,11 @@ function App() {
                 <div className="merch-art">
                   <BrandImage
                     src={item.image}
-                    alt={item.title}
+                    alt={`${item.title} — official RED T7GER merch`}
                     className="merch-img"
                     fallbackLabel={item.title}
+                    width={600}
+                    height={600}
                   />
                 </div>
                 <div className="merch-meta">
@@ -592,7 +632,14 @@ function App() {
             {pressLinks.map((item) => (
               <a href={item.href} target="_blank" rel="noopener noreferrer" className="press-item" key={item.title}>
                 <div className="press-thumb">
-                  <img src={item.image} alt={item.imageAlt} loading="lazy" />
+                  <img
+                    src={item.image}
+                    alt={item.imageAlt}
+                    loading="lazy"
+                    decoding="async"
+                    width={132}
+                    height={84}
+                  />
                 </div>
                 <div className="press-text">
                   <span>{item.source}</span>

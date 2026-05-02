@@ -699,20 +699,49 @@ h3 {
 
 .press-item {
   display: grid;
-  grid-template-columns: 170px 1fr 24px;
+  grid-template-columns: 132px 1fr 24px;
   align-items: center;
   gap: 18px;
   min-height: 84px;
-  padding: 18px 20px;
+  padding: 14px 18px 14px 14px;
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.045);
-  transition: border-color 180ms ease, background 180ms ease;
+  transition: border-color 180ms ease, background 180ms ease, transform 180ms ease;
 }
 
 .press-item:hover {
   border-color: rgba(217, 164, 65, 0.42);
   background: rgba(255, 255, 255, 0.07);
+}
+
+.press-item:hover .press-thumb img {
+  transform: scale(1.04);
+}
+
+.press-thumb {
+  position: relative;
+  width: 132px;
+  height: 84px;
+  overflow: hidden;
+  border-radius: 6px;
+  background: #111;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.press-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 240ms ease;
+}
+
+.press-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
 }
 
 .press-item strong {
@@ -1011,6 +1040,11 @@ h3 {
   .release-card,
   .press-item {
     grid-template-columns: 1fr;
+  }
+
+  .press-thumb {
+    width: 100%;
+    height: 180px;
   }
 
   .hero-release {

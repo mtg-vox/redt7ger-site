@@ -117,16 +117,22 @@ const pressLinks = [
     title: 'Lyrical Rapper B. Totty Working With Infamous Producer LX Xander',
     source: 'The Hype Magazine',
     href: 'https://www.thehypemagazine.com/2023/07/lyrical-rapper-b-totty-working-with-infamous-producer-lx-xander/',
+    image: '/press/hype-magazine.jpg',
+    imageAlt: 'B. Totty press portrait, The Hype Magazine',
   },
   {
     title: 'Red Hat employee makes viral rap video about Raleigh',
     source: 'ABC11',
     href: 'https://abc11.com/entertainment/red-hat-employee-makes-viral-rap-video-about-raleigh/1185323/',
+    image: '/press/abc11.jpg',
+    imageAlt: 'Still from the viral Raleigh rap video, ABC11 / WTVD',
   },
   {
     title: "Red Hatter raps: 'We love Raleigh'",
     source: 'The News & Observer',
     href: 'https://www.newsobserver.com/news/business/article57970488.html',
+    image: '/press/news-observer.svg',
+    imageAlt: 'The News & Observer, Raleigh',
   },
 ]
 
@@ -585,8 +591,13 @@ function App() {
           <div className="press-list">
             {pressLinks.map((item) => (
               <a href={item.href} target="_blank" rel="noopener noreferrer" className="press-item" key={item.title}>
-                <span>{item.source}</span>
-                <strong>{item.title}</strong>
+                <div className="press-thumb">
+                  <img src={item.image} alt={item.imageAlt} loading="lazy" />
+                </div>
+                <div className="press-text">
+                  <span>{item.source}</span>
+                  <strong>{item.title}</strong>
+                </div>
                 <ExternalLink size={18} aria-hidden="true" />
               </a>
             ))}

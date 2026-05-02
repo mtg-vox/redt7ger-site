@@ -24,6 +24,9 @@ import merchData from './merch.generated.json'
 const links = {
   spotify: 'https://open.spotify.com/artist/7hrPBz3dtDMzxZSujLTDSD',
   magicTrick: 'https://open.spotify.com/album/5I6BmI2oFpy1MnnuAWmXDt',
+  dirtyF7ckSmart: 'https://music.redt7ger.com/DIRTY_F7CK',
+  dirtyF7ckSpotify: 'https://open.spotify.com/album/2BvHTr67ZgJ04V5QSKywSr',
+  dirtyF7ckApple: 'https://music.apple.com/us/album/dirty-f7ck-single/1894926153',
   apple: 'https://music.apple.com/us/artist/red-t7ger/1894961385',
   youtube: 'https://www.youtube.com/@Red_T7ger',
   youtubeMusic: 'https://music.youtube.com/channel/UC6fJRbXuBTF19kEia7L_L_A',
@@ -73,13 +76,15 @@ const soundPillars = [
   },
 ]
 
-const upcomingRelease = {
+const featuredRelease = {
   title: 'Dirty F7ck',
-  type: 'New Single',
+  type: 'New Single — Out Now',
   year: 'May 1, 2026',
-  copy: 'The next RED T7GER single. Heavier hook, sharper teeth, and the brand at full strength.',
+  copy: 'The latest RED T7GER single is live. Heavier hook, sharper teeth, and the brand at full strength — stream it now on Spotify, Apple Music, and everywhere else.',
   cover: brand.dirtyF7ck,
-  href: links.spotify,
+  href: links.dirtyF7ckSmart,
+  spotifyHref: links.dirtyF7ckSpotify,
+  appleHref: links.dirtyF7ckApple,
 }
 
 const catalog = [
@@ -372,7 +377,7 @@ function App() {
             </div>
           </div>
 
-          <div className="hero-release" aria-label="Upcoming release">
+          <div className="hero-release" aria-label="Latest release">
             <BrandImage
               src={brand.dirtyF7ck}
               alt="Dirty F7ck cover art"
@@ -380,10 +385,10 @@ function App() {
               fallbackLabel="DIRTY F7CK"
             />
             <div>
-              <span>{upcomingRelease.type} · {upcomingRelease.year}</span>
-              <strong>{upcomingRelease.title}</strong>
-              <a href={upcomingRelease.href} target="_blank" rel="noopener noreferrer">
-                Pre-save / follow <ExternalLink size={15} aria-hidden="true" />
+              <span>{featuredRelease.type} · {featuredRelease.year}</span>
+              <strong>{featuredRelease.title}</strong>
+              <a href={featuredRelease.href} target="_blank" rel="noopener noreferrer">
+                Listen now <ExternalLink size={15} aria-hidden="true" />
               </a>
             </div>
           </div>
@@ -429,21 +434,21 @@ function App() {
 
           <article className="release-feature">
             <BrandImage
-              src={upcomingRelease.cover}
-              alt={`${upcomingRelease.title} cover art`}
+              src={featuredRelease.cover}
+              alt={`${featuredRelease.title} cover art`}
               className="release-feature-art"
-              fallbackLabel={upcomingRelease.title.toUpperCase()}
+              fallbackLabel={featuredRelease.title.toUpperCase()}
             />
             <div className="release-feature-copy">
-              <span className="badge">{upcomingRelease.type} · {upcomingRelease.year}</span>
-              <h3>{upcomingRelease.title}</h3>
-              <p>{upcomingRelease.copy}</p>
+              <span className="badge">{featuredRelease.type} · {featuredRelease.year}</span>
+              <h3>{featuredRelease.title}</h3>
+              <p>{featuredRelease.copy}</p>
               <div className="release-feature-actions">
-                <ExternalButton href={upcomingRelease.href}>
+                <ExternalButton href={featuredRelease.spotifyHref}>
                   <SiSpotify size={18} aria-hidden="true" />
-                  Save on Spotify
+                  Listen on Spotify
                 </ExternalButton>
-                <ExternalButton href={links.apple} variant="secondary">
+                <ExternalButton href={featuredRelease.appleHref} variant="secondary">
                   <SiApplemusic size={18} aria-hidden="true" />
                   Apple Music
                 </ExternalButton>

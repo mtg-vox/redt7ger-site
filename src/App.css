@@ -562,6 +562,83 @@ h3 {
   padding-bottom: 80px;
 }
 
+.merch-spotlight {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(300px, 0.55fr);
+  align-items: stretch;
+  gap: 22px;
+  margin-bottom: 26px;
+}
+
+.merch-spotlight-media {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 10px;
+  background: #050506;
+  box-shadow: var(--shadow);
+}
+
+.merch-spotlight-media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  box-shadow: inset 0 0 0 1px rgba(242, 27, 45, 0.18), inset 0 -90px 120px rgba(0, 0, 0, 0.28);
+}
+
+.merch-spotlight-img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2000 / 1335;
+  display: block;
+  object-fit: contain;
+  object-position: center center;
+  transition: transform 260ms ease;
+}
+
+.merch-spotlight-media:hover .merch-spotlight-img {
+  transform: scale(1.015);
+}
+
+.merch-spotlight-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 14px;
+  padding: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 10px;
+  background:
+    linear-gradient(145deg, rgba(242, 27, 45, 0.17), transparent 58%),
+    rgba(255, 255, 255, 0.045);
+}
+
+.merch-spotlight-copy span {
+  color: var(--amber);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.merch-spotlight-copy h3 {
+  margin-bottom: 0;
+  font-size: 34px;
+}
+
+.merch-spotlight-copy p {
+  margin-bottom: 6px;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.merch-spotlight-copy .button {
+  align-self: flex-start;
+}
+
 .merch-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -928,6 +1005,7 @@ h3 {
   .release-feature,
   .release-grid,
   .visual-section,
+  .merch-spotlight,
   .booking-section {
     grid-template-columns: 1fr;
   }
@@ -1099,6 +1177,33 @@ h3 {
     padding-bottom: 56px;
   }
 
+  .merch-spotlight {
+    gap: 14px;
+    margin-bottom: 22px;
+  }
+
+  .merch-spotlight-media {
+    border-radius: 8px;
+  }
+
+  .merch-spotlight-copy {
+    align-items: center;
+    padding: 22px 18px;
+    text-align: center;
+  }
+
+  .merch-spotlight-copy h3 {
+    font-size: 25px;
+  }
+
+  .merch-spotlight-copy p {
+    font-size: 15px;
+  }
+
+  .merch-spotlight-copy .button {
+    align-self: stretch;
+  }
+
   .section-heading {
     margin-bottom: 28px;
   }
@@ -1221,6 +1326,7 @@ h3 {
   .pillar-card,
   .press-item,
   .visual-copy,
+  .merch-spotlight-copy,
   .booking-copy,
   .booking-section,
   .footer {

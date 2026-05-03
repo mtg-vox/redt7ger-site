@@ -98,6 +98,14 @@ const catalog = [
   },
 ]
 
+const shoeDrop = {
+  title: 'RED T7GER 77 Sneakers',
+  kicker: 'Limited Edition Concept',
+  copy: 'A hard red-and-black footwear concept built around the tiger mark, 77 badge, and streetwear edge of the RED T7GER visual world.',
+  image: '/merch/red-t7ger-77-sneakers.jpg',
+  href: links.etsy,
+}
+
 type MerchItem = {
   id: string
   title: string
@@ -575,6 +583,29 @@ function App() {
               Apparel, prints, and limited drops from the official RED T7GER shop on Etsy.
             </p>
           </div>
+
+          <article className="merch-spotlight">
+            <a className="merch-spotlight-media" href={shoeDrop.href} target="_blank" rel="noopener noreferrer">
+              <BrandImage
+                src={shoeDrop.image}
+                alt="RED T7GER 77 sneakers product concept with red and black shoe views"
+                className="merch-spotlight-img"
+                fallbackLabel="RED T7GER 77 SNEAKERS"
+                width={2000}
+                height={1335}
+              />
+            </a>
+            <div className="merch-spotlight-copy">
+              <span>{shoeDrop.kicker}</span>
+              <h3>{shoeDrop.title}</h3>
+              <p>{shoeDrop.copy}</p>
+              <ExternalButton href={shoeDrop.href}>
+                <ShoppingBag size={18} aria-hidden="true" />
+                Shop RED T7GER merch
+              </ExternalButton>
+            </div>
+          </article>
+
           <div className="merch-grid">
             {merch.map((item) => (
               <a className="merch-card" href={item.href} target="_blank" rel="noopener noreferrer" key={item.id}>

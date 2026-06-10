@@ -401,7 +401,7 @@ function App() {
             <p className="eyebrow">Formerly B. Totty</p>
             <h1>RED T7GER</h1>
             <p className="hero-copy">
-              Dark, technical, high-energy rap built where lyrical hip-hop collides with rap-metal aggression and nu-metal weight.
+              RED T7GER is a Miami-based rap-rock artist blending aggressive hip-hop, nu-metal energy, and cyberpunk-inspired themes. Influenced by Tech N9ne, Limp Bizkit, and futuristic sci-fi, his music combines rapid-fire vocals, heavy emotion, and cinematic storytelling.
             </p>
             <div className="hero-actions" aria-label="Primary actions">
               <ExternalButton href={links.spotify}>

@@ -8,6 +8,7 @@ Drop the following files in this folder. The site will pick them up automaticall
 | `tiger-mark.png`     | Tiger silhouette only (no text) — used in Visual World section | 1024×1024, transparent bg |
 | `portrait-wide.jpg`  | Wide artist portrait — used as hero background (face paint photo, wide crop) | 2400×1000 |
 | `portrait-square.jpg`| Square artist portrait — used in Visual World section | 1200×1200 |
+| `neon-lights.jpg`    | Neon Lights single cover art | 640×640 public cover; replace with 1400×1400+ master when available |
 | `dirty-f7ck.jpg`     | Dirty F7ck single cover art | 1500×1500 |
 | `magic-trick.jpg`    | Magic Trick single cover art | 1500×1500 |
 

@@ -23,6 +23,9 @@ import merchData from './merch.generated.json'
 
 const links = {
   spotify: 'https://open.spotify.com/artist/7hrPBz3dtDMzxZSujLTDSD',
+  neonLightsSmart: 'https://music.redt7ger.com/Neon_Lights',
+  neonLightsSpotify: 'https://open.spotify.com/album/7LdxgXyUSKvnGORqeTipLj',
+  neonLightsApple: 'https://music.apple.com/us/album/neon-lights/6767562140?i=6767562141',
   magicTrick: 'https://open.spotify.com/album/5I6BmI2oFpy1MnnuAWmXDt',
   dirtyF7ckSmart: 'https://music.redt7ger.com/DIRTY_F7CK',
   dirtyF7ckSpotify: 'https://open.spotify.com/album/2BvHTr67ZgJ04V5QSKywSr',
@@ -44,6 +47,7 @@ const brand = {
   tigerMark: '/brand/tiger-mark.png',
   portraitWide: '/brand/portrait-wide.jpg',
   portraitSquare: '/brand/portrait-square.jpg',
+  neonLights: '/brand/neon-lights.jpg',
   dirtyF7ck: '/brand/dirty-f7ck.jpg',
   magicTrick: '/brand/magic-trick.jpg',
 }
@@ -52,6 +56,7 @@ const platformLinks = [
   { label: 'Spotify',     href: links.spotify,    icon: SiSpotify,     brand: '#1DB954' },
   { label: 'Apple Music', href: links.apple,      icon: SiApplemusic,  brand: '#FA243C' },
   { label: 'YouTube',     href: links.youtube,    icon: SiYoutube,     brand: '#FF0000' },
+  { label: 'YouTube Music', href: links.youtubeMusic, icon: SiYoutubemusic, brand: '#FF0000' },
   { label: 'Instagram',   href: links.instagram,  icon: SiInstagram,   brand: '#E1306C' },
   { label: 'TikTok',      href: links.tiktok,     icon: SiTiktok,      brand: '#ffffff' },
   { label: 'SoundCloud',  href: links.soundcloud, icon: SiSoundcloud,  brand: '#FF5500' },
@@ -77,17 +82,25 @@ const soundPillars = [
 ]
 
 const featuredRelease = {
-  title: 'Dirty F7ck',
+  title: 'Neon Lights',
   type: 'New Single — Out Now',
-  year: 'May 1, 2026',
-  copy: 'The latest RED T7GER single is live. Heavier hook, sharper teeth, and the brand at full strength — stream it now on Spotify, Apple Music, and everywhere else.',
-  cover: brand.dirtyF7ck,
-  href: links.dirtyF7ckSmart,
-  spotifyHref: links.dirtyF7ckSpotify,
-  appleHref: links.dirtyF7ckApple,
+  year: 'May 29, 2026',
+  copy: 'The latest RED T7GER single is live: cinematic rap-rock with police-light tension, cyberpunk edge, and a hook built for the late-night drive.',
+  cover: brand.neonLights,
+  href: links.neonLightsSmart,
+  spotifyHref: links.neonLightsSpotify,
+  appleHref: links.neonLightsApple,
 }
 
 const catalog = [
+  {
+    title: 'Dirty F7ck',
+    type: 'Single',
+    year: '2026',
+    copy: 'Dark trap-rock pressure, heavy hooks, and the RED T7GER brand at full strength.',
+    cover: brand.dirtyF7ck,
+    href: links.dirtyF7ckSmart,
+  },
   {
     title: 'Magic Trick',
     type: 'Single',
@@ -417,10 +430,10 @@ function App() {
 
           <div className="hero-release" aria-label="Latest release">
             <BrandImage
-              src={brand.dirtyF7ck}
-              alt="Dirty F7ck single cover art by RED T7GER"
+              src={featuredRelease.cover}
+              alt={`${featuredRelease.title} single cover art by RED T7GER`}
               className="hero-release-art"
-              fallbackLabel="DIRTY F7CK"
+              fallbackLabel={featuredRelease.title.toUpperCase()}
             />
             <div>
               <span>{featuredRelease.type} · {featuredRelease.year}</span>
@@ -489,10 +502,6 @@ function App() {
                 <ExternalButton href={featuredRelease.appleHref} variant="secondary">
                   <SiApplemusic size={18} aria-hidden="true" />
                   Apple Music
-                </ExternalButton>
-                <ExternalButton href={links.youtubeMusic} variant="secondary">
-                  <SiYoutubemusic size={18} aria-hidden="true" />
-                  YouTube Music
                 </ExternalButton>
               </div>
             </div>

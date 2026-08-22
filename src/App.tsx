@@ -109,6 +109,30 @@ const catalog = [
     cover: brand.magicTrick,
     href: links.magicTrick,
   },
+  {
+    title: 'Do Something',
+    type: 'Single',
+    year: '2026',
+    copy: 'Confrontational and direct — a catalog cut carried forward into the RED T7GER era.',
+    cover: brand.logo,
+    href: links.apple,
+  },
+  {
+    title: 'Your Ex GF',
+    type: 'Single',
+    year: '2026',
+    copy: 'Sharp-tongued and sardonic, with the rap-rock swagger the project was built on.',
+    cover: brand.logo,
+    href: links.apple,
+  },
+  {
+    title: 'To My Haters',
+    type: 'Single',
+    year: '2025',
+    copy: 'A defiant answer record — pressure, spite, and momentum in equal measure.',
+    cover: brand.logo,
+    href: links.apple,
+  },
 ]
 
 const shoeDrop = {
@@ -697,6 +721,9 @@ function App() {
           <span>Dark rap-rock with nu-metal influence.</span>
           <span className="footer-fineprint">
             © 2026 RED T7GER. All rights reserved. <a href="/privacy.html">Privacy & Terms</a>
+          </span>
+          <span className="footer-fineprint">
+            Formerly B. Totty. <a href="/history/b-totty/">Read the history &rarr;</a>
           </span>
         </div>
           <div className="footer-links">

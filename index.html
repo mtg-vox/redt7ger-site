@@ -48,26 +48,69 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "MusicGroup",
-        "name": "RED T7GER",
-        "alternateName": ["B. Totty", "Red T7ger"],
-        "url": "https://redt7ger.com/",
-        "image": "https://redt7ger.com/brand/logo.png",
-        "logo": "https://redt7ger.com/brand/logo.png",
-        "genre": ["Rap rock", "Rap metal", "Nu metal", "Hip hop", "Rock"],
-        "description": "RED T7GER is a Miami-based rap-rock artist blending aggressive hip-hop, nu-metal energy, and cyberpunk-inspired themes. Influenced by Tech N9ne, Limp Bizkit, and futuristic sci-fi, his music combines rapid-fire vocals, heavy emotion, and cinematic storytelling.",
-        "sameAs": [
-          "https://open.spotify.com/artist/7hrPBz3dtDMzxZSujLTDSD",
-          "https://music.apple.com/us/artist/red-t7ger/1894961385",
-          "https://www.youtube.com/@Red_T7ger",
-          "https://music.youtube.com/channel/UC6fJRbXuBTF19kEia7L_L_A",
-          "https://www.instagram.com/red_t7ger/",
-          "https://www.tiktok.com/@red_t7ger",
-          "https://x.com/red_t7ger",
-          "https://soundcloud.com/red_t7ger",
-          "https://facebook.com/redt7ger",
-          "https://www.reverbnation.com/RED_T7GER",
-          "https://www.etsy.com/shop/RedTigerUnlimited"
+        "@graph": [
+          {
+            "@type": "MusicGroup",
+            "@id": "https://redt7ger.com/#redt7ger",
+            "name": "RED T7GER",
+            "alternateName": "Red T7ger",
+            "url": "https://redt7ger.com/",
+            "mainEntityOfPage": "https://redt7ger.com/",
+            "image": "https://redt7ger.com/brand/logo.png",
+            "logo": "https://redt7ger.com/brand/logo.png",
+            "genre": ["Rap rock", "Rap metal", "Nu metal", "Hip hop", "Rock"],
+            "foundingLocation": {
+              "@type": "Place",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Miami",
+                "addressRegion": "FL",
+                "addressCountry": "US"
+              }
+            },
+            "description": "RED T7GER is a Miami-based rap-rock artist blending aggressive hip-hop, nu-metal energy, and cyberpunk-inspired themes. Influenced by Tech N9ne, Limp Bizkit, and futuristic sci-fi, his music combines rapid-fire vocals, heavy emotion, and cinematic storytelling.",
+            "member": { "@id": "https://redt7ger.com/#bryan-totty" },
+            "recordLabel": { "@id": "https://redt7ger.com/#totty-music" },
+            "subjectOf": { "@id": "https://redt7ger.com/history/b-totty/#page" },
+            "sameAs": [
+              "https://open.spotify.com/artist/7hrPBz3dtDMzxZSujLTDSD",
+              "https://music.apple.com/us/artist/red-t7ger/1894961385",
+              "https://www.youtube.com/@Red_T7ger",
+              "https://music.youtube.com/channel/UC6fJRbXuBTF19kEia7L_L_A",
+              "https://www.instagram.com/red_t7ger/",
+              "https://www.tiktok.com/@red_t7ger",
+              "https://x.com/red_t7ger",
+              "https://soundcloud.com/red_t7ger",
+              "https://facebook.com/redt7ger",
+              "https://www.reverbnation.com/RED_T7GER"
+            ]
+          },
+          {
+            "@type": "MusicGroup",
+            "@id": "https://redt7ger.com/#b-totty",
+            "name": "B. Totty",
+            "description": "B. Totty is the earlier artist identity of Bryan Totty, active from 2015 through 2025 with a multi-year independent catalog. New music is now released as RED T7GER.",
+            "url": "https://redt7ger.com/history/b-totty/",
+            "member": { "@id": "https://redt7ger.com/#bryan-totty" },
+            "recordLabel": { "@id": "https://redt7ger.com/#totty-music" },
+            "sameAs": ["https://music.apple.com/us/artist/b-totty/1054364829"]
+          },
+          {
+            "@type": "Person",
+            "@id": "https://redt7ger.com/#bryan-totty",
+            "name": "Bryan Totty",
+            "description": "Bryan Totty is the musician behind the RED T7GER project and the earlier B. Totty catalog.",
+            "memberOf": [
+              { "@id": "https://redt7ger.com/#redt7ger" },
+              { "@id": "https://redt7ger.com/#b-totty" }
+            ]
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://redt7ger.com/#totty-music",
+            "name": "Totty Music",
+            "description": "Independent label and publishing entity behind the RED T7GER and B. Totty catalogs."
+          }
         ]
       }
     </script>
@@ -137,13 +180,15 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
+        "@type": "ItemList",
+        "name": "RED T7GER site sections",
         "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Music", "item": "https://redt7ger.com/#music" },
-          { "@type": "ListItem", "position": 2, "name": "Signal", "item": "https://redt7ger.com/#signal" },
-          { "@type": "ListItem", "position": 3, "name": "Merch", "item": "https://redt7ger.com/#merch" },
-          { "@type": "ListItem", "position": 4, "name": "Press", "item": "https://redt7ger.com/#press" },
-          { "@type": "ListItem", "position": 5, "name": "Booking", "item": "https://redt7ger.com/#contact" }
+          { "@type": "SiteNavigationElement", "position": 1, "name": "Music", "url": "https://redt7ger.com/#music" },
+          { "@type": "SiteNavigationElement", "position": 2, "name": "Signal", "url": "https://redt7ger.com/#signal" },
+          { "@type": "SiteNavigationElement", "position": 3, "name": "Merch", "url": "https://redt7ger.com/#merch" },
+          { "@type": "SiteNavigationElement", "position": 4, "name": "Press", "url": "https://redt7ger.com/#press" },
+          { "@type": "SiteNavigationElement", "position": 5, "name": "Booking", "url": "https://redt7ger.com/#contact" },
+          { "@type": "SiteNavigationElement", "position": 6, "name": "History: B. Totty", "url": "https://redt7ger.com/history/b-totty/" }
         ]
       }
     </script>
@@ -165,9 +210,9 @@
         "@type": "ItemList",
         "name": "RED T7GER press coverage",
         "itemListElement": [
-          { "@type": "ListItem", "position": 1, "item": { "@type": "NewsArticle", "headline": "Lyrical Rapper B. Totty Working With Infamous Producer LX Xander", "url": "https://www.thehypemagazine.com/2023/07/lyrical-rapper-b-totty-working-with-infamous-producer-lx-xander/", "publisher": { "@type": "Organization", "name": "The Hype Magazine" }, "about": { "@type": "MusicGroup", "name": "RED T7GER", "alternateName": "B. Totty" } } },
-          { "@type": "ListItem", "position": 2, "item": { "@type": "NewsArticle", "headline": "Red Hat employee makes viral rap video about Raleigh", "url": "https://abc11.com/entertainment/red-hat-employee-makes-viral-rap-video-about-raleigh/1185323/", "publisher": { "@type": "Organization", "name": "ABC11 / WTVD" }, "about": { "@type": "MusicGroup", "name": "RED T7GER", "alternateName": "B. Totty" } } },
-          { "@type": "ListItem", "position": 3, "item": { "@type": "NewsArticle", "headline": "Red Hatter raps: 'We love Raleigh'", "url": "https://www.newsobserver.com/news/business/article57970488.html", "publisher": { "@type": "Organization", "name": "The News & Observer" }, "about": { "@type": "MusicGroup", "name": "RED T7GER", "alternateName": "B. Totty" } } }
+          { "@type": "ListItem", "position": 1, "item": { "@type": "NewsArticle", "headline": "Lyrical Rapper B. Totty Working With Infamous Producer LX Xander", "url": "https://www.thehypemagazine.com/2023/07/lyrical-rapper-b-totty-working-with-infamous-producer-lx-xander/", "publisher": { "@type": "Organization", "name": "The Hype Magazine" }, "about": { "@id": "https://redt7ger.com/#b-totty" } } },
+          { "@type": "ListItem", "position": 2, "item": { "@type": "NewsArticle", "headline": "Red Hat employee makes viral rap video about Raleigh", "url": "https://abc11.com/entertainment/red-hat-employee-makes-viral-rap-video-about-raleigh/1185323/", "publisher": { "@type": "Organization", "name": "ABC11 / WTVD" }, "about": { "@id": "https://redt7ger.com/#b-totty" } } },
+          { "@type": "ListItem", "position": 3, "item": { "@type": "NewsArticle", "headline": "Red Hatter raps: 'We love Raleigh'", "url": "https://www.newsobserver.com/news/business/article57970488.html", "publisher": { "@type": "Organization", "name": "The News & Observer" }, "about": { "@id": "https://redt7ger.com/#b-totty" } } }
         ]
       }
     </script>

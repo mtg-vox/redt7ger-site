@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "npm run merch:sync && tsc -b && vite build",
-    "build:nofetch": "tsc -b && vite build",
+    "build": "npm run merch:sync && tsc -b && vite build && node scripts/prerender.mjs",
+    "build:nofetch": "tsc -b && vite build && node scripts/prerender.mjs",
     "lint": "eslint .",
     "preview": "vite preview",
     "merch:sync": "node scripts/sync-etsy-merch.mjs"
@@ -29,7 +29,6 @@
     "globals": "^17.5.0",
     "typescript": "~6.0.2",
     "typescript-eslint": "^8.58.2",
-    "vite": "^8.0.10",
-    "vite-prerender-plugin": "^0.5.13"
+    "vite": "^8.0.10"
   }
 }

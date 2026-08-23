@@ -23,13 +23,14 @@ import merchData from './merch.generated.json'
 
 const links = {
   spotify: 'https://open.spotify.com/artist/7hrPBz3dtDMzxZSujLTDSD',
-  neonLightsSmart: 'https://music.redt7ger.com/Neon_Lights',
   neonLightsSpotify: 'https://open.spotify.com/album/7LdxgXyUSKvnGORqeTipLj',
   neonLightsApple: 'https://music.apple.com/us/album/neon-lights/6767562140?i=6767562141',
   magicTrick: 'https://open.spotify.com/album/5I6BmI2oFpy1MnnuAWmXDt',
-  dirtyF7ckSmart: 'https://music.redt7ger.com/DIRTY_F7CK',
   dirtyF7ckSpotify: 'https://open.spotify.com/album/2BvHTr67ZgJ04V5QSKywSr',
   dirtyF7ckApple: 'https://music.apple.com/us/album/dirty-f7ck-single/1894926153',
+  doSomethingSpotify: 'https://open.spotify.com/album/1lfmuKcWdThBZ1kwtjaqFc',
+  yourExGfSpotify: 'https://open.spotify.com/album/2gNIiHQYo72nDdCsu0iohc',
+  toMyHatersSpotify: 'https://open.spotify.com/album/49PQdwbRYWhPZhkeRfP5Fi',
   apple: 'https://music.apple.com/us/artist/red-t7ger/1894961385',
   youtube: 'https://www.youtube.com/@Red_T7ger',
   youtubeMusic: 'https://music.youtube.com/channel/UC6fJRbXuBTF19kEia7L_L_A',
@@ -50,6 +51,9 @@ const brand = {
   neonLights: '/brand/neon-lights.jpg',
   dirtyF7ck: '/brand/dirty-f7ck.jpg',
   magicTrick: '/brand/magic-trick.jpg',
+  doSomething: '/brand/do-something.jpg',
+  yourExGf: '/brand/your-ex-gf.jpg',
+  toMyHaters: '/brand/to-my-haters.jpg',
 }
 
 const platformLinks = [
@@ -87,7 +91,7 @@ const featuredRelease = {
   year: 'May 29, 2026',
   copy: 'The latest RED T7GER single is live: cinematic rap-rock with police-light tension, cyberpunk edge, and a hook built for the late-night drive.',
   cover: brand.neonLights,
-  href: links.neonLightsSmart,
+  href: links.neonLightsSpotify,
   spotifyHref: links.neonLightsSpotify,
   appleHref: links.neonLightsApple,
 }
@@ -99,7 +103,7 @@ const catalog = [
     year: '2026',
     copy: 'Dark trap-rock pressure, heavy hooks, and the RED T7GER brand at full strength.',
     cover: brand.dirtyF7ck,
-    href: links.dirtyF7ckSmart,
+    href: links.dirtyF7ckSpotify,
   },
   {
     title: 'Magic Trick',
@@ -114,24 +118,24 @@ const catalog = [
     type: 'Single',
     year: '2026',
     copy: 'Confrontational and direct — a catalog cut carried forward into the RED T7GER era.',
-    cover: brand.logo,
-    href: links.apple,
+    cover: brand.doSomething,
+    href: links.doSomethingSpotify,
   },
   {
     title: 'Your Ex GF',
     type: 'Single',
     year: '2026',
     copy: 'Sharp-tongued and sardonic, with the rap-rock swagger the project was built on.',
-    cover: brand.logo,
-    href: links.apple,
+    cover: brand.yourExGf,
+    href: links.yourExGfSpotify,
   },
   {
     title: 'To My Haters',
     type: 'Single',
     year: '2025',
     copy: 'A defiant answer record — pressure, spite, and momentum in equal measure.',
-    cover: brand.logo,
-    href: links.apple,
+    cover: brand.toMyHaters,
+    href: links.toMyHatersSpotify,
   },
 ]
 
@@ -381,7 +385,7 @@ function BrandImage({
       decoding="async"
       width={width}
       height={height}
-      {...(fetchPriority ? { fetchpriority: fetchPriority } : {})}
+      {...(fetchPriority ? { fetchPriority } : {})}
       onError={(e: SyntheticEvent<HTMLImageElement>) => {
         e.currentTarget.style.display = 'none'
         setFailed(true)
@@ -461,7 +465,11 @@ function App() {
             />
             <div>
               <span>{featuredRelease.type} · {featuredRelease.year}</span>
-              <strong>{featuredRelease.title}</strong>
+              <strong>
+                <a className="release-title-link" href={featuredRelease.spotifyHref} target="_blank" rel="noopener noreferrer">
+                  {featuredRelease.title}
+                </a>
+              </strong>
               <a href={featuredRelease.href} target="_blank" rel="noopener noreferrer">
                 Listen to {featuredRelease.title} <ExternalLink size={15} aria-hidden="true" />
               </a>
@@ -516,7 +524,11 @@ function App() {
             />
             <div className="release-feature-copy">
               <span className="badge">{featuredRelease.type} · {featuredRelease.year}</span>
-              <h3>{featuredRelease.title}</h3>
+              <h3>
+                <a className="release-title-link" href={featuredRelease.spotifyHref} target="_blank" rel="noopener noreferrer">
+                  {featuredRelease.title}
+                </a>
+              </h3>
               <p>{featuredRelease.copy}</p>
               <div className="release-feature-actions">
                 <ExternalButton href={featuredRelease.spotifyHref}>
@@ -542,7 +554,11 @@ function App() {
                 />
                 <div className="release-copy">
                   <span>{release.type} · {release.year}</span>
-                  <h3>{release.title}</h3>
+                  <h3>
+                    <a className="release-title-link" href={release.href} target="_blank" rel="noopener noreferrer">
+                      {release.title}
+                    </a>
+                  </h3>
                   <p>{release.copy}</p>
                   <a href={release.href} target="_blank" rel="noopener noreferrer">
                     Listen to {release.title} <ArrowUpRight size={17} aria-hidden="true" />

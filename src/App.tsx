@@ -736,6 +736,9 @@ function App() {
           <strong>RED T7GER</strong>
           <span>Dark rap-rock with nu-metal influence.</span>
           <span className="footer-fineprint">
+            RED T7GER is an artist brand operated by Totty Music.
+          </span>
+          <span className="footer-fineprint">
             © 2026 RED T7GER. All rights reserved. <a href="/privacy.html">Privacy & Terms</a>
           </span>
           <span className="footer-fineprint">

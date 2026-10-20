@@ -1138,7 +1138,7 @@ h3 {
   .hero-release,
   .release-card,
   .press-item {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .press-thumb {
@@ -1177,6 +1177,7 @@ h3 {
   }
 
   .release-feature {
+    grid-template-columns: minmax(0, 1fr);
     padding: 14px;
     gap: 18px;
     margin-bottom: 24px;
@@ -1373,6 +1374,12 @@ h3 {
   .release-copy a {
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .badge,
+  .hero-release a,
+  .release-copy a {
+    max-width: 100%;
   }
 
   .release-feature-copy,

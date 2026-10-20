@@ -23,6 +23,9 @@ import merchData from './merch.generated.json'
 
 const links = {
   spotify: 'https://open.spotify.com/artist/7hrPBz3dtDMzxZSujLTDSD',
+  ghostInThaSystem: 'https://music.redt7ger.com/GHOST_IN_THA_SYSTEM',
+  ghostInThaSystemSpotify: 'https://open.spotify.com/track/0zhHM6nBanpaj0JMjUDsE7',
+  ghostInThaSystemApple: 'https://music.apple.com/us/album/ghost-in-tha-system-single/6819790777',
   neonLightsSpotify: 'https://open.spotify.com/album/7LdxgXyUSKvnGORqeTipLj',
   neonLightsApple: 'https://music.apple.com/us/album/neon-lights/6767562140?i=6767562141',
   magicTrick: 'https://open.spotify.com/album/5I6BmI2oFpy1MnnuAWmXDt',
@@ -48,6 +51,7 @@ const brand = {
   tigerMark: '/brand/tiger-mark.png',
   portraitWide: '/brand/portrait-wide.jpg',
   portraitSquare: '/brand/portrait-square.jpg',
+  ghostInThaSystem: '/brand/ghost-in-tha-system.jpg',
   neonLights: '/brand/neon-lights.jpg',
   dirtyF7ck: '/brand/dirty-f7ck.jpg',
   magicTrick: '/brand/magic-trick.jpg',
@@ -86,17 +90,25 @@ const soundPillars = [
 ]
 
 const featuredRelease = {
-  title: 'Neon Lights',
+  title: 'Ghost In Tha System',
   type: 'New Single — Out Now',
-  year: 'May 29, 2026',
-  copy: 'The latest RED T7GER single is live: cinematic rap-rock with police-light tension, cyberpunk edge, and a hook built for the late-night drive.',
-  cover: brand.neonLights,
-  href: links.neonLightsSpotify,
-  spotifyHref: links.neonLightsSpotify,
-  appleHref: links.neonLightsApple,
+  year: 'October 16, 2026',
+  copy: 'Dark rap-rock with hard guitars, underground hip-hop energy, and a digital edge. The latest RED T7GER single is out now.',
+  cover: brand.ghostInThaSystem,
+  href: links.ghostInThaSystem,
+  spotifyHref: links.ghostInThaSystemSpotify,
+  appleHref: links.ghostInThaSystemApple,
 }
 
 const catalog = [
+  {
+    title: 'Neon Lights',
+    type: 'Single',
+    year: '2026',
+    copy: 'Cinematic rap-rock with police-light tension, cyberpunk edge, and a hook built for the late-night drive.',
+    cover: brand.neonLights,
+    href: links.neonLightsSpotify,
+  },
   {
     title: 'Dirty F7ck',
     type: 'Single',
